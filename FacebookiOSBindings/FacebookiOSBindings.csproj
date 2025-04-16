@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+
+    <!--
+      Enable trim analyzers for class libraries.
+      To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
+    -->
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+
+    <ItemGroup>
+    <NativeReference Include="Native References\FBSDKCoreKit.xcframework">
+      <Kind>Framework</Kind>
+      <Frameworks>Foundation UIKit</Frameworks>
+      <IsCxx>false</IsCxx>
+      <Linkage>Static</Linkage>
+    </NativeReference>
+  
+    <NativeReference Include="Native References\FBAEMKit.xcframework">
+      <Kind>Framework</Kind>
+      <Frameworks>Foundation UIKit</Frameworks>
+      <IsCxx>false</IsCxx>
+      <Linkage>Static</Linkage>
+    </NativeReference>
+    <NativeReference Include="Native References\FBSDKCoreKit_Basics.xcframework">
+      <Kind>Framework</Kind>
+      <Frameworks>Foundation UIKit</Frameworks>
+      <IsCxx>false</IsCxx>
+      <Linkage>Static</Linkage>
+    </NativeReference>
+
+    <NativeReference Include="Native References\FBSDKLoginKit.xcframework">
+      <Kind>Framework</Kind>
+      <Frameworks>Foundation UIKit</Frameworks>
+      <IsCxx>false</IsCxx>
+      <Linkage>Static</Linkage>
+    </NativeReference>
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+</Project>
