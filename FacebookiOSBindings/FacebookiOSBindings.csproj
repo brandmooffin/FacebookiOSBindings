@@ -1,49 +1,65 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0-ios</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>true</ImplicitUsings>
-    <IsBindingProject>true</IsBindingProject>
+	<PropertyGroup>
+		<TargetFramework>net8.0-ios</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>true</ImplicitUsings>
+		<IsBindingProject>true</IsBindingProject>
+		<IsTrimmable>true</IsTrimmable>
 
-    <!--
-      Enable trim analyzers for class libraries.
-      To learn more, see: https://learn.microsoft.com/dotnet/core/deploying/trimming/prepare-libraries-for-trimming
-    -->
-    <IsTrimmable>true</IsTrimmable>
-  </PropertyGroup>
+		<!-- NuGet Package Properties -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>iOS.Facebook.Bindings</PackageId>
+		<PackageVersion>1.0.2</PackageVersion>
+		<Title>Facebook iOS SDK Bindings for .NET</Title>
+		<Authors>brandmooffin</Authors>
+		<Company>brandmooffin</Company>
+		<Description>C# bindings for Facebook iOS SDK including FBSDKCoreKit, FBSDKLoginKit, FBAEMKit, and FBSDKCoreKit_Basics frameworks.</Description>
+		<PackageTags>facebook;ios;sdk;xamarin;maui;bindings</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/brandmooffin/FacebookiOSBindings</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/brandmooffin/FacebookiOSBindings</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
 
-    <ItemGroup>
-    <NativeReference Include="Native References\FBSDKCoreKit.xcframework">
-      <Kind>Framework</Kind>
-      <Frameworks>Foundation UIKit</Frameworks>
-      <IsCxx>false</IsCxx>
-      <Linkage>Static</Linkage>
-    </NativeReference>
-  
-    <NativeReference Include="Native References\FBAEMKit.xcframework">
-      <Kind>Framework</Kind>
-      <Frameworks>Foundation UIKit</Frameworks>
-      <IsCxx>false</IsCxx>
-      <Linkage>Static</Linkage>
-    </NativeReference>
-    <NativeReference Include="Native References\FBSDKCoreKit_Basics.xcframework">
-      <Kind>Framework</Kind>
-      <Frameworks>Foundation UIKit</Frameworks>
-      <IsCxx>false</IsCxx>
-      <Linkage>Static</Linkage>
-    </NativeReference>
+	<ItemGroup>
+		<NativeReference Include="Native References\FBSDKCoreKit.xcframework">
+		  <Kind>Framework</Kind>
+		  <Frameworks>Foundation UIKit</Frameworks>
+		  <IsCxx>false</IsCxx>
+		  <Linkage>Static</Linkage>
+		</NativeReference>
 
-    <NativeReference Include="Native References\FBSDKLoginKit.xcframework">
-      <Kind>Framework</Kind>
-      <Frameworks>Foundation UIKit</Frameworks>
-      <IsCxx>false</IsCxx>
-      <Linkage>Static</Linkage>
-    </NativeReference>
+		<NativeReference Include="Native References\FBAEMKit.xcframework">
+		  <Kind>Framework</Kind>
+		  <Frameworks>Foundation UIKit</Frameworks>
+		  <IsCxx>false</IsCxx>
+		  <Linkage>Static</Linkage>
+		</NativeReference>
+		<NativeReference Include="Native References\FBSDKCoreKit_Basics.xcframework">
+		  <Kind>Framework</Kind>
+		  <Frameworks>Foundation UIKit</Frameworks>
+		  <IsCxx>false</IsCxx>
+		  <Linkage>Static</Linkage>
+		</NativeReference>
 
-  </ItemGroup>
+		<NativeReference Include="Native References\FBSDKLoginKit.xcframework">
+		  <Kind>Framework</Kind>
+		  <Frameworks>Foundation UIKit</Frameworks>
+		  <IsCxx>false</IsCxx>
+		  <Linkage>Static</Linkage>
+		</NativeReference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
-    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+		<ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 </Project>
