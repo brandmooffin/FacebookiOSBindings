@@ -9,7 +9,7 @@
 		<!-- NuGet Package Properties -->
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>iOS.Facebook.Bindings</PackageId>
-		<PackageVersion>1.0.1</PackageVersion>
+		<PackageVersion>1.0.2</PackageVersion>
 		<Title>Facebook iOS SDK Bindings for .NET</Title>
 		<Authors>brandmooffin</Authors>
 		<Company>brandmooffin</Company>

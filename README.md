@@ -16,23 +16,45 @@ This binding library includes the following Facebook iOS SDK frameworks:
 Install the package via NuGet Package Manager:
 
 ```
-Install-Package FacebookiOSBindings
+Install-Package iOS.Facebook.Bindings
 ```
 
 Or via .NET CLI:
 
 ```
-dotnet add package FacebookiOSBindings
+dotnet add package iOS.Facebook.Bindings
 ```
 
-## Usage
+## Usages
 
 Add the necessary using statements to your code:
 
 ```csharp
-using Facebook.CoreKit;
-using Facebook.LoginKit;
-// Add other namespaces as needed
+using FacebookiOSBindings;
+```
+
+```csharp
+LoginManager loginManager = new LoginManager();
+
+loginManager.LogIn(new[] { "public_profile" }, viewController,
+    new LoginManagerLoginResultBlock((loginResult, e) =>
+    {
+        // Handle Login Logic
+    })
+);
+
+loginManager.LogOut();
+```
+
+```csharp
+FacebookiOSBindings.FBSDKApplicationDelegate.SharedInstance
+```
+
+```csharp
+Profile.EnableUpdatesOnAccessTokenChange(true);
+Profile.Notifications.ObserveDidChange((sender, e) => {
+     // Handle Change Logic
+});
 ```
 
 ## Requirements
