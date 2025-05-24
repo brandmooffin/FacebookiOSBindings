@@ -1,0 +1,24 @@
+name: Development Build
+
+on:
+  pull_request:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore FacebookiOSBindings.sln
+
+      - name: Build
+        run: dotnet build FacebookiOSBindings.sln --configuration Debug --no-restore
