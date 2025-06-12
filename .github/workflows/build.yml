@@ -38,6 +38,9 @@ jobs:
       - name: Install iOS workload
         run: dotnet workload install ios
 
+      - name: Install maui workload
+        run: dotnet workload install maui-tizen
+
       - name: Restore dependencies
         run: dotnet restore FacebookiOSBindings.sln
 
