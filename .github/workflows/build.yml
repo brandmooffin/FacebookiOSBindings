@@ -46,7 +46,3 @@ jobs:
 
       - name: Run Unit Tests
         run: dotnet test FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj --configuration Debug --no-build --filter "Category!=RequiresActualSDK"
-
-      # Integration tests are skipped in CI since they require actual Facebook credentials
-      # and a configured iOS environment
-      - name: Pack
