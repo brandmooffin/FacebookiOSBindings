@@ -7,6 +7,7 @@
     <IsPackable>false</IsPackable>
     <UseMaui>true</UseMaui>
     <IsTestProject>true</IsTestProject>
+    <ApplicationId>com.brandmooffin.FacebookiOSBindings.IntegrationTests</ApplicationId>
   </PropertyGroup>
 
   <ItemGroup>
