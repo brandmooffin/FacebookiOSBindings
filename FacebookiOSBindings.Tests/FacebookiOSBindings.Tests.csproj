@@ -8,6 +8,7 @@
     <UseMaui>true</UseMaui>
     <IsTestProject>true</IsTestProject>
     <ApplicationId>com.brandmooffin.FacebookiOSBindings.Tests</ApplicationId>
+    <CodesignDisable>true</CodesignDisable>
   </PropertyGroup>
 
   <ItemGroup>
