@@ -40,15 +40,16 @@ jobs:
 
       - name: Install maui workload
         run: dotnet workload install maui-tizen
-				
-      - name: Workload Restore
-        run: dotnet workload restore
 
       - name: Restore dependencies
         run: dotnet restore FacebookiOSBindings.sln
 
       - name: Build
-        run: dotnet build FacebookiOSBindings.sln --configuration Debug --no-restore
+        run: dotnet build FacebookiOSBindings.sln \
+           -c Debug \
+           -p:RuntimeIdentifier=iossimulator-arm64 \
+           -p:EnableCodeSigning=false \
+           --no-restore
 
       - name: Run Unit Tests
         run: dotnet test FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj --configuration Debug --no-build --filter "Category!=RequiresActualSDK"
