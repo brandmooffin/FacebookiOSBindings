@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0-ios</TargetFramework>
@@ -9,6 +9,7 @@
     <IsTestProject>true</IsTestProject>
     <ApplicationId>com.brandmooffin.FacebookiOSBindings.Tests</ApplicationId>
     <CodesignDisable>true</CodesignDisable>
+		<EnableCodeSigning>false</EnableCodeSigning>
   </PropertyGroup>
 
   <ItemGroup>
