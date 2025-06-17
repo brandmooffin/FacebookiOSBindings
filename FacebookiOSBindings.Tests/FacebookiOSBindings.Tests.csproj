@@ -10,6 +10,7 @@
     <ApplicationId>com.brandmooffin.FacebookiOSBindings.Tests</ApplicationId>
     <CodesignDisable>true</CodesignDisable>
 		<EnableCodeSigning>false</EnableCodeSigning>
+		<RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
