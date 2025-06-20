@@ -21,10 +21,10 @@ jobs:
         run: dotnet workload install ios
 
       - name: Workload Restore (Solution)
-        run: dotnet workload restore
+        run: dotnet workload restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -p:RuntimeIdentifier=iossimulator-arm64 --disable-parallel
       
       - name: NuGet Restore (Solution)
-        run: dotnet restore --runtime iossimulator-arm64
+        run: dotnet restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj --runtime iossimulator-arm64
       
       - name: Build binding
         run: dotnet build FacebookiOSBindings/FacebookiOSBindings.csproj -c Debug -p:RuntimeIdentifier=iossimulator-arm64 -p:EnableCodeSigning=false
