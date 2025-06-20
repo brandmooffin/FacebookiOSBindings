@@ -20,14 +20,14 @@ jobs:
       - name: Install iOS workload
         run: dotnet workload install ios
 
-      - name: Restore RID
-        run: dotnet workload restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -p:RuntimeIdentifier=iossimulator-arm64 
-
-      - name: Restore NuGet
-        run: dotnet restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj --runtime iossimulator-arm64
-
+      - name: Workload Restore (Solution)
+        run: dotnet workload restore
+      
+      - name: NuGet Restore (Solution)
+        run: dotnet restore --runtime iossimulator-arm64
+      
       - name: Build binding
-        run: dotnet build FacebookiOSBindings/FacebookiOSBindings.csproj -c Debug
+        run: dotnet build FacebookiOSBindings/FacebookiOSBindings.csproj -c Debug -p:RuntimeIdentifier=iossimulator-arm64 -p:EnableCodeSigning=false
       
       - name: Build tests
         run: dotnet build FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -c Debug -p:RuntimeIdentifier=iossimulator-arm64 -p:EnableCodeSigning=false
