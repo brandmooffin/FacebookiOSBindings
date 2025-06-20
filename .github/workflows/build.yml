@@ -16,21 +16,15 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
-    
-      - name: Install iOS workload
+
+      - name: Install iOS workload # still required
         run: dotnet workload install ios
 
-      - name: Workload Restore (Solution)
-        run: dotnet workload restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -p:RuntimeIdentifier=iossimulator-arm64 --disable-parallel
-      
-      - name: NuGet Restore (Solution)
-        run: dotnet restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj --runtime iossimulator-arm64
-      
-      - name: Build binding
-        run: dotnet build FacebookiOSBindings/FacebookiOSBindings.csproj -c Debug -p:RuntimeIdentifier=iossimulator-arm64 -p:EnableCodeSigning=false
-      
-      - name: Build tests
-        run: dotnet build FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -c Debug -p:RuntimeIdentifier=iossimulator-arm64 -p:EnableCodeSigning=false
-      
-      - name: Run Unit Tests
-        run: dotnet test FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj --configuration Debug --no-build --filter "Category!=RequiresActualSDK"
+      - name: Restore
+        run: dotnet restore FacebookiOSBindings.sln # workload restore no longer needed
+
+      - name: Build
+        run: dotnet build FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -c Debug
+
+      - name: Test (simulator)
+        run: dotnet test FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -c Debug --filter "Category!=RequiresActualSDK"

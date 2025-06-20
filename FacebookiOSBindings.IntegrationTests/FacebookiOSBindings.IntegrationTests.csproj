@@ -10,6 +10,7 @@
     <CodesignDisable>true</CodesignDisable>
 		<EnableCodeSigning>false</EnableCodeSigning>
 		<RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+    <_EnableRuntimeComponentsManifestGeneration>false</_EnableRuntimeComponentsManifestGeneration>
   </PropertyGroup>
 
   <ItemGroup>
