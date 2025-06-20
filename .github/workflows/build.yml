@@ -41,6 +41,9 @@ jobs:
       - name: Install maui workload
         run: dotnet workload install maui-tizen
 
+      - name: Restore RID
+        run: dotnet workload restore FacebookiOSBindings.Tests/FacebookiOSBindings.Tests.csproj -p:RuntimeIdentifier=iossimulator-arm64 
+
       - name: Build binding
         run: dotnet build FacebookiOSBindings/FacebookiOSBindings.csproj -c Debug
       
