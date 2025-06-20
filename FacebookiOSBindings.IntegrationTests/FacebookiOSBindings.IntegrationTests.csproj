@@ -5,7 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <UseMaui>true</UseMaui>
     <IsTestProject>true</IsTestProject>
     <ApplicationId>com.brandmooffin.FacebookiOSBindings.IntegrationTests</ApplicationId>
     <CodesignDisable>true</CodesignDisable>

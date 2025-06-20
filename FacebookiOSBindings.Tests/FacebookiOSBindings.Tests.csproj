@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0-ios</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <UseMaui>true</UseMaui>
     <IsTestProject>true</IsTestProject>
     <ApplicationId>com.brandmooffin.FacebookiOSBindings.Tests</ApplicationId>
     <CodesignDisable>true</CodesignDisable>
