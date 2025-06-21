@@ -16,6 +16,12 @@ namespace FacebookiOSBindings
         
         [Export("application:openURL:sourceApplication:annotation:")]
         bool OpenUrl(UIApplication application, NSUrl url, [NullAllowed] string sourceApplication, [NullAllowed] NSObject annotation);
+        
+        [Export("application:continueUserActivity:")]
+        bool ContinueUserActivity(UIApplication application, NSUserActivity userActivity);
+
+        [Export("application:openURL:options:")]
+        bool OpenUrl(UIApplication application, NSUrl url, [NullAllowed] NSDictionary options);
     }
 
     [BaseType(typeof(NSObject))]
