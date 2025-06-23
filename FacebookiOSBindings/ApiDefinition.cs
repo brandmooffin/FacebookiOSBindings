@@ -123,4 +123,81 @@ namespace FacebookiOSBindings
         [Export("displayName")]
         string DisplayName { get; set; }
     }
+    
+    [BaseType(typeof(NSObject), Name = "FBSDKSendButton")]
+    public interface SendButton : UIButton
+    {
+        [Export("shareContent")]
+        ShareContent ShareContent { get; set; }
+        
+        [Export("configureButton")]
+        void ConfigureButton();
+        
+        [Export("share")]
+        void Share();
+    }
+    
+    [BaseType(typeof(NSObject), Name = "FBSDKHashtag")]
+    public interface Hashtag : INSSecureCoding
+    {
+        [Export("stringRepresentation")]
+        string StringRepresentation { get; set; }
+        
+        [Export("initWithString:")]
+        [DesignatedInitializer]
+        IntPtr Constructor(string stringRepresentation);
+        
+        [Export("description")]
+        string Description { get; }
+        
+        [Export("isValid")]
+        bool IsValid { get; }
+        
+        [Export("hash")]
+        nuint HashCode { get; }
+    }
+    
+    [BaseType(typeof(NSObject), Name = "FBSDKShareContent")]
+    public interface ShareContent : INSSecureCoding
+    {
+        [Export("contentURL", ArgumentSemantic.Strong)]
+        NSUrl ContentUrl { get; set; }
+
+        [Export("peopleIDs")]
+        string[] PeopleIds { get; set; }
+        
+        [Export("placeID")]
+        [NullAllowed]
+        string PlaceId { get; set; }
+        
+        [Export("ref")]
+        [NullAllowed]
+        string Ref { get; set; }
+        
+        [Export("hashtag")]
+        [NullAllowed]
+        Hashtag Hashtag { get; set; }
+        
+        [Export("pageID")]
+        [NullAllowed]
+        string PageId { get; set; }
+        
+        [Export("shareUUID")]
+        [NullAllowed]
+        string ShareUuid { get; set; }
+    }
+    
+    [BaseType(typeof(NSObject), Name = "FBSDKShareDialog")]
+    public interface ShareDialog
+    {
+        [Static]
+        [Export("showFromViewController:withContent:delegate:")]
+        void Show(UIViewController viewController, ShareContent content, [NullAllowed] ShareDialogDelegate @delegate);
+
+        [Export("mode")]
+        ShareDialogMode Mode { get; set; }
+
+        [Export("fromViewController", ArgumentSemantic.Strong)]
+        UIViewController FromViewController { get; set; }
+    }
 }

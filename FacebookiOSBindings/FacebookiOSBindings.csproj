@@ -52,6 +52,13 @@
 		  <IsCxx>false</IsCxx>
 		  <Linkage>Static</Linkage>
 		</NativeReference>
+
+		<NativeReference Include="Native References\FBSDKShareKit.xcframework">
+			<Kind>Framework</Kind>
+			<Frameworks>Foundation UIKit</Frameworks>
+			<IsCxx>false</IsCxx>
+			<Linkage>Static</Linkage>
+		</NativeReference>
 	</ItemGroup>
 
 	<ItemGroup>
