@@ -1,6 +1,7 @@
 using ObjCRuntime;
 using Foundation;
 using UIKit;
+using System;
 
 namespace FacebookiOSBindings
 {
@@ -113,10 +114,10 @@ namespace FacebookiOSBindings
     [BaseType(typeof(NSObject), Name = "FBSDKSettings")]
     public interface Settings
     {
-        // [Static]
-        // [NullAllowed]
-        // [Export("appID")]
-        // string AppId { get; set; }
+        [Static]
+        [NullAllowed]
+        [Export("appID")]
+        string AppId { get; set; }
         
         [Static]
         [NullAllowed]
@@ -124,8 +125,8 @@ namespace FacebookiOSBindings
         string DisplayName { get; set; }
     }
     
-    [BaseType(typeof(NSObject), Name = "FBSDKSendButton")]
-    public interface SendButton : UIButton
+    [BaseType(typeof(UIButton), Name = "FBSDKSendButton")]
+    public interface SendButton
     {
         [Export("shareContent")]
         ShareContent ShareContent { get; set; }
@@ -199,5 +200,19 @@ namespace FacebookiOSBindings
 
         [Export("fromViewController", ArgumentSemantic.Strong)]
         UIViewController FromViewController { get; set; }
+    }
+    
+    public delegate void ShareDialogDelegate([NullAllowed] ShareDialog dialog, [NullAllowed] NSError error);
+    
+    [BaseType(typeof(NSObject), Name = "FBSDKShareDialogMode")]
+    public enum ShareDialogMode : long
+    {
+        Automatic,
+        Native,
+        Browser,
+        Web,
+        FeedBrowser,
+        ShareSheet,
+        Custom
     }
 }
