@@ -33,6 +33,9 @@ namespace FacebookiOSBindings
         void Enable();
     }
 
+    
+    #region FBSDKLoginKit
+    
     [BaseType(typeof(NSObject), Name = "FBSDKLoginManager")]
     public interface LoginManager
     {
@@ -54,6 +57,8 @@ namespace FacebookiOSBindings
         [Export("token")]
         AccessToken Token { get; }
     }
+    
+    #endregion
 
     [BaseType(typeof(NSObject), Name = "FBSDKAccessToken")]
     public interface AccessToken
