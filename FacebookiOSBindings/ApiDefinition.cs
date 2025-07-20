@@ -243,23 +243,8 @@ namespace FacebookiOSBindings
         [Static]
         [Export("current")]
         GamingContext Current { get; }
-
-        [Export("contextID")]
-        string ContextId { get; }
-
-        [Export("isActive")]
-        bool IsActive { get; }
-
-        [Export("isPlayerContext")]
-        bool IsPlayerContext { get; }
         
-        [Export("isGroupContext")]
-        bool IsGroupContext { get; }
-        
-        [Export("isTournamentContext")]
-        bool IsTournamentContext { get; }
     }
-    
     
     #endregion
 }
