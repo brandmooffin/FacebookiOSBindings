@@ -24,6 +24,8 @@ namespace FacebookiOSBindings
         [Export("application:openURL:options:")]
         bool OpenUrl(UIApplication application, NSUrl url, [NullAllowed] NSDictionary options);
     }
+    
+    #region FBAEMReporter
 
     [BaseType(typeof(NSObject))]
     public interface FBAEMReporter
@@ -32,7 +34,10 @@ namespace FacebookiOSBindings
         [Export("enable")]
         void Enable();
     }
-
+    #endregion
+    
+    #region FBSDKLoginKit
+    
     [BaseType(typeof(NSObject), Name = "FBSDKLoginManager")]
     public interface LoginManager
     {
@@ -54,6 +59,8 @@ namespace FacebookiOSBindings
         [Export("token")]
         AccessToken Token { get; }
     }
+    
+    #endregion
 
     [BaseType(typeof(NSObject), Name = "FBSDKAccessToken")]
     public interface AccessToken
@@ -124,7 +131,9 @@ namespace FacebookiOSBindings
         [Export("displayName")]
         string DisplayName { get; set; }
     }
-    
+
+    #region FBSDKShareKit
+
     [BaseType(typeof(UIButton), Name = "FBSDKSendButton")]
     public interface SendButton
     {
@@ -215,4 +224,27 @@ namespace FacebookiOSBindings
         ShareSheet,
         Custom
     }
+    
+    #endregion
+    
+    #region FBSDKGamingServicesKit
+    
+    [BaseType(typeof(NSObject), Name = "AccessTokenProvider")]
+    public interface AccessTokenProvider
+    {
+        [Static]
+        [Export("current")]
+        AccessToken CurrentAccessToken { get; }
+    }
+    
+    [BaseType(typeof(NSObject), Name = "FBSDKGamingContext")]
+    public interface GamingContext : INSSecureCoding
+    {
+        [Static]
+        [Export("current")]
+        GamingContext Current { get; }
+        
+    }
+    
+    #endregion
 }

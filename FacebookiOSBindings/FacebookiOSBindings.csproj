@@ -59,6 +59,13 @@
 			<IsCxx>false</IsCxx>
 			<Linkage>Static</Linkage>
 		</NativeReference>
+
+		<NativeReference Include="Native References\FBSDKGamingServicesKit.xcframework">
+			<Kind>Framework</Kind>
+			<Frameworks>Foundation UIKit</Frameworks>
+			<IsCxx>false</IsCxx>
+			<Linkage>Static</Linkage>
+		</NativeReference>
 	</ItemGroup>
 
 	<ItemGroup>

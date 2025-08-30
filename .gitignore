@@ -400,3 +400,4 @@ FodyWeavers.xsd
 *.sln.iml
 .idea
 FacebookiOSBindings/.DS_Store
+.DS_Store
